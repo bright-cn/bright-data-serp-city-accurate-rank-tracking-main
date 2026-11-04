@@ -1,105 +1,105 @@
-# 🚀 GitHub Actions Setup Guide
+# 🚀 GitHub Actions 设置指南
 
-This guide explains how to set up automated daily SERP rank tracking using GitHub Actions.
+本指南介绍如何使用 GitHub Actions 设置自动化的每日 SERP 排名跟踪。
 
-## 📋 Prerequisites
+## 📋 前提条件
 
-- GitHub repository with the SERP rank tracker code
-- Bright Data API credentials
-- GitHub repository admin access
+- 包含 SERP 排名跟踪器代码的 GitHub 仓库
+- Bright Data API 凭据
+- GitHub 仓库管理员权限
 
-## 🔐 Setting Up Secrets
+## 🔐 设置密钥
 
-### 1. Go to Repository Settings
-Navigate to your repository → **Settings** → **Secrets and variables** → **Actions**
+### 1. 前往仓库设置
+进入你的仓库 → **Settings** → **Secrets and variables** → **Actions**
 
-### 2. Add Required Secrets
+### 2. 添加必需的密钥
 
 #### `BRIGHT_DATA_API_KEY`
-- **Name**: `BRIGHT_DATA_API_KEY`
-- **Value**: Your Bright Data API key
-- **Description**: API key for Bright Data SERP API access
+- **名称**：`BRIGHT_DATA_API_KEY`
+- **值**：你的 Bright Data API 密钥
+- **说明**：用于访问 Bright Data 搜索引擎 API 的 API 密钥
 
-#### `BRIGHT_DATA_ZONE` (Optional)
-- **Name**: `BRIGHT_DATA_ZONE`
-- **Value**: `serp_api1` (or your custom zone)
-- **Description**: Bright Data zone identifier
+#### `BRIGHT_DATA_ZONE`（可选）
+- **名称**：`BRIGHT_DATA_ZONE`
+- **值**：`serp_api1`（或你的自定义区域）
+- **说明**：Bright Data 区域标识符
 
-## ⏰ Schedule Configuration
+## ⏰ 计划配置
 
-The workflow is configured to run **every day at 6:00 AM Europe time**:
+工作流已配置为**每天欧洲时间上午 6:00**运行：
 
-- **Winter (CET)**: 6:00 AM Central European Time
-- **Summer (CEST)**: 6:00 AM Central European Summer Time
-- **UTC Equivalent**: 5:00 AM UTC (winter) / 4:00 AM UTC (summer)
+- **冬季（CET）**：中欧时间上午 6:00
+- **夏季（CEST）**：中欧夏令时间上午 6:00
+- **对应 UTC 时间**：冬季 UTC 上午 5:00 / 夏季 UTC 上午 4:00
 
-### Customizing the Schedule
+### 自定义计划
 
-Edit `.github/workflows/daily-rank-tracking.yml` and modify the cron expression:
+编辑 `.github/workflows/daily-rank-tracking.yml` 并修改 cron 表达式：
 
 ```yaml
 schedule:
   - cron: '0 5 * * *'  # Current: 5:00 AM UTC daily
 ```
 
-**Common Cron Patterns:**
-- `0 5 * * *` - Daily at 5:00 AM UTC
-- `0 */6 * * *` - Every 6 hours
-- `0 5 * * 1-5` - Weekdays only at 5:00 AM UTC
-- `0 5 1 * *` - First day of each month at 5:00 AM UTC
+**常用 Cron 模式：**
+- `0 5 * * *` - 每天 UTC 上午 5:00
+- `0 */6 * * *` - 每 6 小时
+- `0 5 * * 1-5` - 仅工作日 UTC 上午 5:00
+- `0 5 1 * *` - 每月第一天 UTC 上午 5:00
 
-## 🎯 Manual Triggering
+## 🎯 手动触发
 
-You can manually run the workflow anytime:
+你可以随时手动运行工作流：
 
-1. Go to **Actions** tab in your repository
-2. Select **🚀 Daily SERP Rank Tracking**
-3. Click **Run workflow**
-4. Choose options:
-   - **Test mode**: Run with limited data (faster, cheaper)
-   - **Concurrency**: Number of simultaneous API requests
+1. 前往仓库中的 **Actions** 选项卡
+2. 选择 **🚀 每日 SERP 排名跟踪**
+3. 点击 **Run workflow**
+4. 选择选项：
+   - **测试模式**：使用有限数据运行（更快、成本更低）
+   - **并发数**：同时发出的 API 请求数量
 
-## 📊 Monitoring & Results
+## 📊 监控与结果
 
-### Workflow Status
-- **Green checkmark**: Success ✅
-- **Red X**: Failure ❌
-- **Yellow dot**: In progress 🔄
+### 工作流状态
+- **绿色勾号**：成功 ✅
+- **红色 X**：失败 ❌
+- **黄色圆点**：进行中 🔄
 
-### Results Access
-1. **Artifacts**: Download results from the Actions tab
-2. **Summary**: View results summary in the workflow run
-3. **Logs**: Check detailed execution logs
+### 访问结果
+1. **构件**：从 Actions 选项卡下载结果
+2. **摘要**：在工作流运行页面查看结果摘要
+3. **日志**：查看详细执行日志
 
-### Artifact Retention
-- Results are kept for **30 days**
-- Each run creates a new artifact with timestamp
-- Previous runs remain accessible in the Actions history
+### 构件保留
+- 结果将保留 **30 天**
+- 每次运行都会创建带时间戳的新构件
+- 之前的运行记录仍可在 Actions 历史记录中访问
 
-## 🔧 Troubleshooting
+## 🔧 故障排除
 
-### Common Issues
+### 常见问题
 
-#### API Rate Limits
+#### API 速率限制
 ```
 Error: Rate limit exceeded
 ```
-**Solution**: Reduce concurrency or add delays between requests
+**解决方案**：降低并发数或在请求之间添加延迟
 
-#### Authentication Errors
+#### 身份验证错误
 ```
 Error: 401 Unauthorized
 ```
-**Solution**: Check `BRIGHT_DATA_API_KEY` secret is correct
+**解决方案**：检查 `BRIGHT_DATA_API_KEY` 密钥是否正确
 
-#### Missing Dependencies
+#### 缺少依赖项
 ```
 Error: Cannot find module
 ```
-**Solution**: Ensure `package-lock.json` is committed
+**解决方案**：确保已提交 `package-lock.json`
 
-### Debug Mode
-Enable debug logging by adding to the workflow:
+### 调试模式
+通过在工作流中添加以下内容启用调试日志：
 
 ```yaml
 - name: 🧪 Run rank tracking
@@ -108,43 +108,43 @@ Enable debug logging by adding to the workflow:
   run: npm run dev -- --concurrency 3
 ```
 
-## 📈 Performance Optimization
+## 📈 性能优化
 
-### Recommended Settings
-- **Production**: Concurrency 5-10
-- **Testing**: Concurrency 2-3
-- **Large datasets**: Consider splitting into multiple workflows
+### 推荐设置
+- **生产环境**：并发数 5-10
+- **测试环境**：并发数 2-3
+- **大型数据集**：考虑拆分为多个工作流
 
-### Cost Management
-- Monitor API usage in Bright Data dashboard
-- Use test mode for development
-- Set up usage alerts
+### 成本管理
+- 在 Bright Data 控制面板中监控 API 使用量
+- 开发时使用测试模式
+- 设置使用量提醒
 
-## 🔄 Updating the Workflow
+## 🔄 更新工作流
 
-### Automatic Updates
-Dependabot will automatically suggest updates for:
-- Node.js version
-- GitHub Actions versions
-- npm dependencies
+### 自动更新
+Dependabot 将自动为以下内容提供更新建议：
+- Node.js 版本
+- GitHub Actions 版本
+- npm 依赖项
 
-### Manual Updates
-1. Edit `.github/workflows/daily-rank-tracking.yml`
-2. Commit and push changes
-3. GitHub Actions will use the new configuration on next run
+### 手动更新
+1. 编辑 `.github/workflows/daily-rank-tracking.yml`
+2. 提交并推送更改
+3. GitHub Actions 将在下次运行时使用新配置
 
-## 📞 Support
+## 📞 支持
 
-If you encounter issues:
-1. Check the workflow logs
-2. Verify secrets are correctly set
-3. Test locally with `npm run dev`
-4. Check Bright Data API status
+如果遇到问题：
+1. 检查工作流日志
+2. 确认密钥设置正确
+3. 使用 `npm run dev` 在本地进行测试
+4. 检查 Bright Data API 状态
 
-## 🎉 Success Indicators
+## 🎉 成功指标
 
-Your setup is working correctly when:
-- ✅ Workflow runs automatically at scheduled time
-- ✅ Results are generated and uploaded as artifacts
-- ✅ Summary shows correct result counts
-- ✅ No authentication or rate limit errors 
+满足以下条件即表示设置运行正常：
+- ✅ 工作流在计划时间自动运行
+- ✅ 结果已生成并作为构件上传
+- ✅ 摘要显示正确的结果数量
+- ✅ 没有身份验证或速率限制错误 

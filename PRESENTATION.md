@@ -1,118 +1,118 @@
-# 🎯 Bright Data SERP Rank Tracker - Node.js Project - Presentation Guide
+# 🎯 Bright Data SERP 排名跟踪器 - Node.js 项目 - 演示指南
 
-## 🚀 Demo Overview
+## 🚀 演示概览
 
-This presentation demonstrates a professional-grade SERP rank tracking tool that processes hundreds of keywords across multiple cities and devices simultaneously.
+本演示将展示一款专业级 SERP 排名跟踪工具，它可以同时处理跨多个城市和设备的数百个关键词。
 
-## 📋 Agenda
+## 📋 议程
 
-1. **Introduction** (2 min)
-2. **Live Demo** (5 min)
-3. **Key Features** (3 min)
-4. **Technical Architecture** (2 min)
-5. **Performance Metrics** (2 min)
-6. **Q&A** (3 min)
+1. **简介**（2 分钟）
+2. **现场演示**（5 分钟）
+3. **主要功能**（3 分钟）
+4. **技术架构**（2 分钟）
+5. **性能指标**（2 分钟）
+6. **问答**（3 分钟）
 
-## 🎬 Demo Script
+## 🎬 演示脚本
 
-### 1. Introduction
-> "Today I'm showcasing a powerful SERP rank tracking solution that can monitor your website's search rankings across multiple markets simultaneously. This tool processes hundreds of keywords across dozens of cities in minutes, not hours."
+### 1. 简介
+> “今天我要展示一款强大的 SERP 排名跟踪解决方案，它可以同时监控你的网站在多个市场中的搜索排名。此工具能够在几分钟而非数小时内处理分布在数十个城市中的数百个关键词。”
 
-### 2. Live Demo Commands
+### 2. 现场演示命令
 
-#### Start with Demo Mode
+#### 从演示模式开始
 ```bash
 npm run demo
 ```
-*This shows the interface without making API calls*
+*无需发出 API 调用即可展示界面*
 
-#### Show Test Run
+#### 展示测试运行
 ```bash
 npm run dev -- --queries data/test-queries.csv --locations data/test-locations.csv --concurrency 3
 ```
-*This processes 2 queries × 2 cities = 4 tasks in ~30 seconds*
+*处理 2 个查询 × 2 个城市 = 4 个任务，约需 30 秒*
 
-#### Full Scale Demo
+#### 完整规模演示
 ```bash
 npm run dev -- --concurrency 5
 ```
-*This processes 10 queries × 10 cities = 100 tasks in ~2 minutes*
+*处理 10 个查询 × 10 个城市 = 100 个任务，约需 2 分钟*
 
-### 3. Key Features to Highlight
+### 3. 需要重点介绍的功能
 
-- **🔍 Multi-Query Processing**: Handle hundreds of keywords simultaneously
-- **🌍 Geo-Targeting**: Accurate city-based results using Google's uule parameter
-- **⚡ Concurrent Processing**: Configurable concurrency for optimal performance
-- **📊 Dual Output**: JSON and CSV exports with timestamps
-- **🔄 Smart Deduplication**: Remove duplicate results by domain
-- **📈 Real-time Progress**: Live tracking of processing status
+- **🔍 多查询处理**：同时处理数百个关键词
+- **🌍 地理位置定位**：使用 Google 的 uule 参数获取准确的城市级结果
+- **⚡ 并发处理**：可配置并发数以实现最佳性能
+- **📊 双格式输出**：导出带时间戳的 JSON 和 CSV
+- **🔄 智能去重**：按域名删除重复结果
+- **📈 实时进度**：实时跟踪处理状态
 
-### 4. Technical Highlights
+### 4. 技术亮点
 
-- **API Integration**: Uses Bright Data SERP API for reliable results
-- **Geo-Targeting**: Implements Google's uule parameter for precise location targeting
-- **Error Handling**: Comprehensive error handling and retry logic
-- **Performance**: Optimized for speed with controlled concurrency
-- **Scalability**: Can handle thousands of queries across hundreds of locations
+- **API 集成**：使用 Bright Data 搜索引擎 API 获取可靠结果
+- **地理位置定位**：使用 Google 的 uule 参数实现精确的位置定位
+- **错误处理**：全面的错误处理和重试逻辑
+- **性能**：通过受控并发优化处理速度
+- **可扩展性**：可处理跨数百个地点的数千个查询
 
-### 5. Performance Metrics
+### 5. 性能指标
 
-| Dataset Size | Time | Results | Efficiency |
+| 数据集大小 | 时间 | 结果 | 效率 |
 |--------------|------|---------|------------|
-| 2×2 (4 tasks) | ~30s | 25 results | 0.83 results/sec |
-| 10×10 (100 tasks) | ~2min | 314 results | 2.62 results/sec |
+| 2×2（4 个任务） | ~30s | 25 个结果 | 0.83 个结果/秒 |
+| 10×10（100 个任务） | 约 2 分钟 | 314 个结果 | 2.62 个结果/秒 |
 
-### 6. Business Value
+### 6. 商业价值
 
-- **Time Savings**: Process 100 queries in 2 minutes vs. hours manually
-- **Accuracy**: Precise geo-targeting for market-specific insights
-- **Scalability**: Handle enterprise-level keyword portfolios
-- **Insights**: Comprehensive ranking data across markets and devices
-- **Automation**: Eliminate manual rank checking processes
+- **节省时间**：2 分钟处理 100 个查询，手动处理则需要数小时
+- **准确性**：精确的地理位置定位可提供特定市场洞察
+- **可扩展性**：处理企业级关键词组合
+- **洞察**：获取跨市场和设备的全面排名数据
+- **自动化**：省去手动检查排名的流程
 
-## 🎯 Demo Tips
+## 🎯 演示技巧
 
-### Before the Demo
-- Ensure `.env` is configured with valid API credentials
-- Test the demo script: `npm run demo`
-- Have sample output files ready to show
+### 演示前
+- 确保 `.env` 已配置有效的 API 凭据
+- 测试演示脚本：`npm run demo`
+- 准备好可供展示的示例输出文件
 
-### During the Demo
-- Start with demo mode to show the interface
-- Run a small test to demonstrate speed
-- Show the output files (JSON/CSV)
-- Highlight the progress tracking
-- Emphasize the international coverage
+### 演示期间
+- 首先使用演示模式展示界面
+- 运行小型测试以展示速度
+- 展示输出文件（JSON/CSV）
+- 重点介绍进度跟踪
+- 强调全球覆盖能力
 
-### After the Demo
-- Show the generated output files
-- Discuss customization options
-- Address technical questions
-- Provide next steps
+### 演示后
+- 展示生成的输出文件
+- 讨论自定义选项
+- 回答技术问题
+- 介绍后续步骤
 
-## 🔧 Troubleshooting
+## 🔧 故障排除
 
-### Common Demo Issues
+### 常见演示问题
 
-**API Key Not Set**
+**未设置 API 密钥**
 ```bash
 cp env.example .env
 # Edit .env with your API key
 ```
 
-**No Results**
-- Check API credentials
-- Verify Bright Data account status
-- Test with smaller dataset first
+**无结果**
+- 检查 API 凭据
+- 确认 Bright Data 账户状态
+- 先使用较小的数据集进行测试
 
-**Slow Performance**
-- Reduce concurrency: `--concurrency 3`
-- Use test dataset for demos
-- Check network connectivity
+**性能缓慢**
+- 降低并发数：`--concurrency 3`
+- 演示时使用测试数据集
+- 检查网络连接
 
-## 📊 Sample Output to Show
+## 📊 可展示的示例输出
 
-### JSON Structure
+### JSON 结构
 ```json
 {
   "keyword": "coffee shops",
@@ -129,20 +129,20 @@ cp env.example .env
 }
 ```
 
-### CSV Format
-Show the generated CSV file in Excel/Google Sheets to demonstrate data analysis capabilities.
+### CSV 格式
+在 Excel/Google 表格中展示生成的 CSV 文件，以演示数据分析能力。
 
-## 🎉 Closing
+## 🎉 结束语
 
-> "This tool transforms SERP rank tracking from a manual, time-consuming process into an automated, scalable solution. Whether you're tracking 10 keywords or 10,000, across 1 city or 100, this solution scales with your needs."
+> “此工具将 SERP 排名跟踪从耗时的手动流程转变为自动化且可扩展的解决方案。无论你要跟踪 10 个还是 10,000 个关键词，覆盖 1 个还是 100 个城市，此解决方案都能随你的需求扩展。”
 
-## 📞 Next Steps
+## 📞 后续步骤
 
-- **Technical Demo**: Schedule a technical deep-dive
-- **Customization**: Discuss specific requirements
-- **Integration**: Explore API integration options
-- **Support**: Review documentation and support options
+- **技术演示**：安排深入的技术演示
+- **自定义**：讨论具体要求
+- **集成**：探索 API 集成选项
+- **支持**：查看文档和支持选项
 
 ---
 
-*This presentation guide ensures a professional, engaging demo that highlights the tool's capabilities and business value.* 
+*本演示指南可确保演示专业且富有吸引力，并充分展示该工具的功能和商业价值。* 

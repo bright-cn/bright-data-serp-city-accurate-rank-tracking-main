@@ -1,44 +1,42 @@
-# 🚀 Bright Data SERP 排名追踪器 - Node.js 项目
+# 🚀 Bright Data SERP 排名跟踪器 - Node.js 项目
 
-[![Bright Data Promo](https://github.com/bright-cn/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://www.bright.cn/)
+[![Bright Data 推广](https://github.com/bright-cn/Awesome-Web-Scraping/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner%20CN.png)](https://www.bright.cn/)
 
-[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Daily%20Tracking-blue?style=for-the-badge&logo=github)](https://github.com/your-username/bright-data-serp-rank-tracker-nodejs-project/actions)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Daily%20Tracking-blue?style=for-the-badge&logo=github)](https://github.com/your-username/bright-data-serp-rank-tracker-nodejs-project/actions) [![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)](https://nodejs.org/) [![许可证](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-一个功能强大的 Node.js 工具，基于 Bright Data SERP API 跨多关键词、多城市、多设备进行搜索引擎排名追踪。非常适合需要全面排名数据的 SEO 专业人士、市场人员与企业。
+一款功能强大的 Node.js 工具，使用 Bright Data 搜索引擎 API 跟踪跨多个关键词、城市和设备的搜索引擎排名。非常适合需要全面排名跟踪数据的 SEO 专业人员、营销人员和企业。
 
 ## ✨ 功能
 
-- 🔍 多查询支持：可同时处理数百个关键词
-- 🌍 地理定向：使用 Google 的 `uule` 参数实现精准城市级结果
-- 📱 设备定向：同时支持桌面端与移动端搜索结果
-- ⚡ 并发处理：可配置并发度以获得最佳性能
-- 📊 双重输出：带时间戳的 JSON 与 CSV 导出
-- 🔄 智能去重：按域名去重结果
-- 📈 实时进度：实时追踪处理状态
-- 🌐 国际覆盖：支持多国家与多语言
-- 💾 缓存地理数据：本地缓存提升地理定向效率
+- **🔍 多查询支持**：同时处理数百个关键词
+- **🌍 地理位置定位**：使用 Google 的 `uule` 参数获取准确的城市级结果
+- **📱 设备定位**：支持桌面设备和移动设备搜索结果
+- **⚡ 并发处理**：可配置并发数以实现最佳性能
+- **📊 双格式输出**：导出带时间戳的 JSON 和 CSV
+- **🔄 智能去重**：按域名删除重复结果
+- **📈 实时进度**：实时跟踪处理状态
+- **🌐 全球覆盖**：支持多个国家和语言
+- **💾 缓存的地理位置数据**：通过本地缓存高效进行地理位置定位
 
 ## 🏗️ 架构
 
-脚本采用精巧的架构设计：
-- 解析 Bright Data API 响应（数据在 `body` 字段中返回）
-- 提取自然搜索结果并进行字段映射
-- 通过受控并发避免触发 API 速率限制
-- 提供完善的错误处理与日志记录
-- 生成干净、结构化的可分析输出
+此脚本采用先进的架构，可实现以下功能：
+- 解析 Bright Data API 响应（返回的数据位于 `body` 字段中）
+- 通过正确的字段映射提取自然搜索结果
+- 实施受控并发以避免 API 速率限制
+- 提供全面的错误处理和日志记录
+- 生成整洁的结构化输出以供分析
 
-## 📋 前置条件
+## 📋 前提条件
 
-- Node.js 16+
+- Node.js 16+ 
 - npm 或 yarn
-- Bright Data SERP API 账号
-- 有效的 API key 与 zone
+- Bright Data 搜索引擎 API 账户
+- 有效的 API 密钥和区域
 
 ## 🚀 快速开始
 
-### 1. 克隆与安装
+### 1. 克隆并安装
 
 ```bash
 git clone <repository-url>
@@ -52,7 +50,7 @@ npm install
 cp env.example .env
 ```
 
-编辑 `.env` 并填入你的凭据：
+使用你的凭据编辑 `.env`：
 ```env
 BRIGHT_DATA_API_KEY=your_api_key_here
 BRIGHT_DATA_ZONE=serp_api1
@@ -61,26 +59,26 @@ BRIGHT_DATA_ZONE=serp_api1
 ### 3. 运行脚本
 
 ```bash
-# 使用默认设置的基础运行
+# Basic run with default settings
 npm run dev
 
-# 自定义并发
+# With custom concurrency
 npm run dev -- --concurrency 10
 
-# 使用更小的数据集进行测试
+# Test with smaller dataset
 npm run dev -- --queries data/test-queries.csv --locations data/test-locations.csv
 ```
 
-## 🤖 每日自动追踪
+## 🤖 每日自动跟踪
 
-仓库内置 GitHub Actions，用于每日自动化排名追踪：
+此仓库包含用于每日自动跟踪排名的 GitHub Actions：
 
-- ⏰ 调度：每天欧洲时间早上 6:00 运行
-- 🎯 手动触发：可随时手动运行
-- 📊 结果：自动作为工件上传
-- 🔐 安全：使用 GitHub Secrets 存储 API 凭据
+- **⏰ 计划**：每天欧洲时间上午 6:00 运行
+- **🎯 手动触发**：可随时手动运行
+- **📊 结果**：自动作为构件上传
+- **🔐 安全**：使用 GitHub Secrets 存储 API 凭据
 
-设置方法：详见 [GITHUB_ACTIONS_SETUP.md](GITHUB_ACTIONS_SETUP.md)。
+**设置**：有关详细配置，请参阅 [GITHUB_ACTIONS_SETUP.md](GITHUB_ACTIONS_SETUP.md)。
 
 ## 📁 输入文件
 
@@ -94,7 +92,7 @@ keyword,brand
 "restaurant delivery"
 ```
 
-### 地点 CSV（`data/locations.csv`）
+### 位置 CSV（`data/locations.csv`）
 ```csv
 city,country,language,device
 "New York","US","en","desktop"
@@ -106,43 +104,43 @@ city,country,language,device
 
 ## 🎯 使用示例
 
-### 基础用法
+### 基本用法
 ```bash
 npm run dev
 ```
-以默认并发（5）处理所有查询与地点。
+使用默认并发数（5）处理所有查询和位置。
 
-### 自定义并发
+### 自定义并发数
 ```bash
 npm run dev -- --concurrency 10
 ```
-同时处理 10 个请求以更快完成。
+同时处理 10 个请求，以提高执行速度。
 
 ### 测试运行
 ```bash
 npm run dev -- --queries data/test-queries.csv --locations data/test-locations.csv --concurrency 3
 ```
-适合小数据集测试（2 个关键词 × 2 个城市 = 4 个任务）。
+非常适合使用较小的数据集进行测试（2 个查询 × 2 个城市 = 4 个任务）。
 
 ### 包含地图结果
 ```bash
 npm run dev -- --surface maps --maps
 ```
-同时采集自然结果与本地/地图结果。
+同时采集自然搜索结果和本地/地图结果。
 
 ### 演示模式
 ```bash
 npm run demo
 ```
-在不调用 API 的情况下展示界面与能力（非常适合演示）。
+无需发出 API 调用即可展示界面和功能（非常适合演示）。
 
 ## 📜 可用脚本
 
-| 脚本 | 描述 |
-|------|------|
-| `npm run dev` | 运行主 SERP 排名追踪脚本 |
+| 脚本 | 说明 |
+|--------|-------------|
+| `npm run dev` | 运行主 SERP 排名跟踪脚本 |
 | `npm run start` | `npm run dev` 的别名 |
-| `npm run demo` | 运行演示模式（不发起 API 调用） |
+| `npm run demo` | 运行演示模式（不调用 API） |
 
 ## 📊 输出格式
 
@@ -164,122 +162,122 @@ npm run demo
 ```
 
 ### CSV 列
-- `keyword` - 搜索关键词
-- `engine` - 搜索引擎（google/bing）
-- `surface` - 搜索界面（search/maps）
+- `keyword` - 搜索查询
+- `engine` - 搜索引擎（Google/Bing）
+- `surface` - 搜索结果类型（搜索/地图）
 - `city` - 目标城市
-- `country` - 目标国家
-- `device` - 设备类型（desktop/mobile）
+- `country` - 目标国家/地区
+- `device` - 设备类型（桌面设备/移动设备）
 - `position` - 排名位置
 - `title` - 结果标题
 - `url` - 结果 URL
-- `domain` - 提取出的域名
+- `domain` - 提取的域名
 - `snippet` - 结果描述
 
 ## ⚙️ 配置选项
 
-| 选项 | 描述 | 默认值 |
-|------|------|--------|
-| `--engine` | 搜索引擎（google/bing） | `google` |
-| `--surface` | 搜索界面（search/maps） | `search` |
-| `--queries` | 查询 CSV 路径 | `data/queries.csv` |
-| `--locations` | 地点 CSV 路径 | `data/locations.csv` |
-| `--maps` | 是否包含地图界面 | `false` |
-| `--concurrency` | 并发请求数量 | `5` |
+| 选项 | 说明 | 默认值 |
+|--------|-------------|---------|
+| `--engine` | 搜索引擎（Google/Bing） | `google` |
+| `--surface` | 搜索结果类型（搜索/地图） | `search` |
+| `--queries` | 查询 CSV 的路径 | `data/queries.csv` |
+| `--locations` | 位置 CSV 的路径 | `data/locations.csv` |
+| `--maps` | 包含地图结果类型 | `false` |
+| `--concurrency` | 并发请求数 | `5` |
 
-## 🌍 支持的地区
+## 🌍 支持的位置
 
-脚本支持带精确地理定向的国际地区：
+此脚本支持全球多个地点，并可进行正确的地理位置定位：
 
-- 北美：美国、加拿大
-- 欧洲：英国、法国、德国
-- 亚洲：日本
-- 大洋洲：澳大利亚
-- 拉美：墨西哥
+- **北美洲**：美国、加拿大
+- **欧洲**：英国、法国、德国
+- **亚洲**：日本
+- **大洋洲**：澳大利亚
+- **拉丁美洲**：墨西哥
 
-每个地点均使用 Google 的 `uule` 参数实现精准地理定向。
+每个位置都使用 Google 的 `uule` 参数进行精确的地理位置定位。
 
 ## 📈 性能
 
 ### 测试结果
-- 小数据集（2×2）：约 30 秒返回 25 个结果
-- 全量（10×10）：约 2 分钟返回 314 个结果
-- 并发：可配置为 1–20+ 个请求
+- **小型数据集**（2×2）：约 30 秒内获得 25 个结果
+- **完整规模**（10×10）：约 2 分钟内获得 314 个结果
+- **并发数**：可配置为 1-20+ 个请求
 
-### 优化建议
-- 使用 5–10 的并发以获得最佳性能
-- 先用小数据集测试
-- 关注 API 速率限制
-- 本地缓存地理定向数据
+### 优化技巧
+- 使用 5-10 的并发数以获得最佳性能
+- 先使用较小的数据集进行测试
+- 监控 API 速率限制
+- 在本地缓存地理位置定位数据
 
 ## 🔧 故障排除
 
 ### 常见问题
 
-API 超时错误
+**API 超时错误**
 ```bash
-# 降低并发
+# Reduce concurrency
 npm run dev -- --concurrency 3
 ```
 
-无结果返回
-- 检查 API key 与 zone 配置
-- 校验查询格式与地点数据
-- 确认 Bright Data 账号余额充足
+**未找到结果**
+- 检查 API 密钥和区域配置
+- 确认查询格式和位置数据
+- 确保 Bright Data 账户有足够的额度
 
-地理定向问题
-- 核对城市/国家的组合是否有效
-- 检查地理目标缓存
-- 留意 uule 参数生成逻辑
+**地理位置定位问题**
+- 确认城市/国家组合
+- 检查地理位置目标缓存
+- 检查 uule 参数生成过程
 
 ### 调试模式
-脚本包含全面日志：
+此脚本包含全面的日志记录：
 - API 响应结构分析
-- 地理定向参数生成
-- 各任务进度追踪
+- 地理位置定位参数生成
+- 每个任务的进度跟踪
 - 失败请求的错误详情
 
 ## 🏗️ 项目结构
 
 ```
-├── index.js              # 主应用脚本
-├── geo-targets.js        # 地理定向工具
-├── data/                 # 输入 CSV 文件
-│   ├── queries.csv      # 待追踪关键词
-│   └── locations.csv    # 目标城市/地区
-├── output/              # 生成的结果
-├── package.json         # 依赖与脚本
-├── .env                 # 环境配置
-└── README.md           # 本文件
+├── index.js              # Main application script
+├── geo-targets.js        # Geo-targeting utilities
+├── data/                 # Input CSV files
+│   ├── queries.csv      # Keywords to track
+│   └── locations.csv    # Target cities/locations
+├── output/              # Generated results
+├── package.json         # Dependencies and scripts
+├── .env                 # Environment configuration
+└── README.md           # This file
 ```
 
 ## 🤝 贡献
 
-1. Fork 本仓库
-2. 新建功能分支
-3. 完成更改
-4. 充分测试
-5. 提交 Pull Request
+1. 复刻仓库
+2. 创建功能分支
+3. 进行更改
+4. 全面测试
+5. 提交拉取请求
 
 ## 📄 许可证
 
-MIT License - 详见 LICENSE 文件。
+MIT 许可证 - 详情请参阅 LICENSE 文件。
 
 ## 🆘 支持
 
-如需帮助：
-- 脚本功能：查看本 README 与故障排除章节
-- Bright Data API：联系 Bright Data 支持
-- 地理定向：查看 geo-targets.js 与地点数据
+对于以下相关问题：
+- **脚本功能**：查看此 README 和故障排除部分
+- **Bright Data API**：联系 Bright Data 支持团队
+- **地理位置定位**：查看 geo-targets.js 和位置数据
 
-## 🎯 演示就绪
+## 🎯 可用于演示
 
-本仓库已为演示优化：
-- ✅ 清晰有序的代码结构
-- ✅ 全面的文档
-- ✅ 可运行示例与样例数据
+此仓库已针对演示进行优化，具备以下特点：
+- ✅ 整洁且组织有序的代码结构
+- ✅ 完善的文档
+- ✅ 可运行的示例和样本数据
 - ✅ 性能基准
 - ✅ 故障排除指南
 - ✅ 专业的 README
 
-非常适合向客户、干系人或技术团队展示 SERP 排名追踪能力！
+非常适合向客户、利益相关者或技术团队展示 SERP 排名跟踪能力！ 
